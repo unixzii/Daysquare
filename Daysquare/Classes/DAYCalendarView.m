@@ -15,6 +15,7 @@
 @interface DAYCalendarView () {
     NSUInteger _visibleYear;
     NSUInteger _visibleMonth;
+    NSArray *_eventsInVisibleMonth;
 }
 
 @property (strong, nonatomic) DAYNavigationBar *navigationBar;
@@ -27,9 +28,27 @@
 
 @property (readonly, copy) NSString *navigationBarTitle;
 
+@property (strong, nonatomic) EKEventStore *eventStore;
+
 @end
 
 @implementation DAYCalendarView
+
+- (void)setShowUserEvents:(BOOL)showUserEvents {
+    if (showUserEvents && self.eventStore == nil && !self.showUserEvents) {
+        self.eventStore = [[EKEventStore alloc] init];
+        [self.eventStore requestAccessToEntityType:EKEntityTypeEvent completion:^(BOOL granted, NSError * _Nullable error) {
+            if (granted) {
+                self->_showUserEvents = showUserEvents;
+                [self performSelectorOnMainThread:@selector(reloadViewAnimated:) withObject:@YES waitUntilDone:nil];
+            }
+        }];
+    }
+    else {
+        self->_showUserEvents = showUserEvents;
+        [self reloadViewAnimated:YES];
+    }
+}
 
 - (instancetype)init {
     self = [super init];
@@ -324,14 +343,28 @@
         [self addConstraintToCenterIndicatorView:self.todayIndicatorView toView:view];
     }
     
+    view.containingEvent = nil;
+    if (self.showUserEvents) {
+        [self->_eventsInVisibleMonth enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            EKEvent *event = obj;
+            if ([[DAYUtils dateFromDateComponents:comps] isEqualToDate:event.startDate]) {
+                view.containingEvent = event;
+                *stop = YES;
+                return;
+            }
+        }];
+    }
+    
     view.representedObject = comps;
     
     if (self.selectedIndicatorView && self.selectedIndicatorView.attachingView == view) {
-        view.textLabel.textColor = self.highlightedComponentTextColor;
+        [view setSelected:YES];
     }
     else {
-        view.textLabel.textColor = self.componentTextColor;
+        [view setSelected:NO];
     }
+    view.textColor = self.componentTextColor;
+    view.highlightTextColor = self.highlightedComponentTextColor;
     view.textLabel.alpha = self->_visibleMonth == month ? 1.0 : 0.5;
     if (self->_visibleMonth == month && self.boldPrimaryComponentText) {
         view.textLabel.font = [UIFont boldSystemFontOfSize:16];
@@ -347,6 +380,27 @@
     
     NSUInteger totalDays = [DAYUtils daysInMonth:self->_visibleMonth ofYear:self->_visibleYear];
     NSUInteger paddingDays = [DAYUtils firstWeekdayInMonth:self->_visibleMonth ofYear:self->_visibleYear] - 1;
+    
+    // Handle user events displaying.
+    if (self.showUserEvents) {
+        NSDateComponents *startComps = [[NSDateComponents alloc] init];
+        startComps.year = self->_visibleYear;
+        startComps.month = self->_visibleMonth;
+        startComps.day = 1;
+        
+        NSDateComponents *endComps = [[NSDateComponents alloc] init];
+        endComps.year = self->_visibleYear;
+        endComps.month = self->_visibleMonth;
+        endComps.day = totalDays;
+        
+        NSPredicate *predicate = [self.eventStore predicateForEventsWithStartDate:[DAYUtils dateFromDateComponents:startComps]
+                                                                          endDate:[DAYUtils dateFromDateComponents:endComps]
+                                                                        calendars:nil];
+        self->_eventsInVisibleMonth = [self.eventStore eventsMatchingPredicate:predicate];
+    }
+    else {
+        self->_eventsInVisibleMonth = nil;
+    }
     
     // Make padding days.
     NSUInteger paddingYear = self->_visibleMonth == 1 ? self->_visibleYear - 1 : self->_visibleYear;
@@ -457,7 +511,7 @@
         
         [UIView animateWithDuration:0.5 delay:0 usingSpringWithDamping:0.7 initialSpringVelocity:0 options:kNilOptions animations:^{
             self.selectedIndicatorView.transform = CGAffineTransformIdentity;
-            sender.textLabel.textColor = self.highlightedComponentTextColor;
+            [sender setSelected:YES];
         } completion:nil];
     }
     else {
@@ -466,8 +520,8 @@
         [UIView animateWithDuration:0.3 delay:0 usingSpringWithDamping:0.8 initialSpringVelocity:0 options:kNilOptions animations:^{
             [self.contentWrapperView layoutIfNeeded];
             
-            ((DAYComponentView *) self.selectedIndicatorView.attachingView).textLabel.textColor = self.componentTextColor;
-            sender.textLabel.textColor = self.highlightedComponentTextColor;
+            [((DAYComponentView *) self.selectedIndicatorView.attachingView) setSelected:NO];
+            [sender setSelected:YES];
         } completion:nil];
         
         self.selectedIndicatorView.attachingView = sender;

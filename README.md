@@ -16,6 +16,11 @@ Get bored with native silly **UIDatePicker**? You may have a try on this control
 * Navigating between arbitrary dates.
 * Automatically adjust view to fit variety sizes.
 
+**[Changelog - 6.14]**
+* **Add: **user's calendar events displaying supports.
+
+![](https://github.com/unixzii/Daysquare/raw/master/Images/event.gif)
+
 ## Guide
 Try the demo project, it's very easy to use. Daysquare follows the **target-action** pattern, just like the native `UIDatePicker` class.
 

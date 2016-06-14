@@ -35,7 +35,7 @@
                                 </date>
                             </datePicker>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i3y-Fp-7Bt">
-                                <rect key="frame" x="27.5" y="399" width="320" height="44"/>
+                                <rect key="frame" x="27" y="399" width="320" height="44"/>
                                 <subviews>
                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="A49-co-G6n">
                                         <rect key="frame" x="263" y="6" width="51" height="31"/>
@@ -46,11 +46,11 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="加粗显示本月日期" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9uP-eP-2Mx">
                                         <rect key="frame" x="8" y="11" width="136" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="A49-co-G6n" secondAttribute="trailing" constant="8" id="5O1-Ml-1Ez"/>
                                     <constraint firstItem="9uP-eP-2Mx" firstAttribute="leading" secondItem="i3y-Fp-7Bt" secondAttribute="leading" constant="8" id="JVB-lQ-gzI"/>
@@ -65,16 +65,49 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eHk-tB-uL1">
+                                <rect key="frame" x="27" y="347" width="320" height="44"/>
+                                <subviews>
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="qaw-Jd-Jx8">
+                                        <rect key="frame" x="263" y="6" width="51" height="31"/>
+                                        <connections>
+                                            <action selector="showUserEventsSwitchDidChange:" destination="BYZ-38-t0r" eventType="valueChanged" id="XJc-Ir-l7q"/>
+                                        </connections>
+                                    </switch>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="显示用户日历中的事件" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L3M-Re-e6y">
+                                        <rect key="frame" x="8" y="11" width="170" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="L3M-Re-e6y" firstAttribute="leading" secondItem="eHk-tB-uL1" secondAttribute="leading" constant="8" id="A9n-29-ecL"/>
+                                    <constraint firstAttribute="trailing" secondItem="qaw-Jd-Jx8" secondAttribute="trailing" constant="8" id="D9P-QO-yFz"/>
+                                    <constraint firstAttribute="width" constant="320" id="ZPz-kc-4Ub"/>
+                                    <constraint firstItem="qaw-Jd-Jx8" firstAttribute="centerY" secondItem="eHk-tB-uL1" secondAttribute="centerY" id="mxc-hY-rNg"/>
+                                    <constraint firstAttribute="height" constant="44" id="tMH-1a-liD"/>
+                                    <constraint firstItem="L3M-Re-e6y" firstAttribute="centerY" secondItem="eHk-tB-uL1" secondAttribute="centerY" id="ziF-H8-gfc"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="xRd-wN-BTj" secondAttribute="trailing" id="7Gh-aq-3ST"/>
+                            <constraint firstItem="i3y-Fp-7Bt" firstAttribute="top" secondItem="eHk-tB-uL1" secondAttribute="bottom" constant="8" id="Cnl-0T-BLs"/>
                             <constraint firstItem="E2q-tT-SeM" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="36" id="FmI-Ul-G09"/>
                             <constraint firstItem="xRd-wN-BTj" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="Ovz-Lt-s8D"/>
                             <constraint firstItem="xRd-wN-BTj" firstAttribute="top" secondItem="i3y-Fp-7Bt" secondAttribute="bottom" constant="8" id="SsN-AX-zld"/>
                             <constraint firstItem="i3y-Fp-7Bt" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="lBR-Va-sNs"/>
                             <constraint firstItem="E2q-tT-SeM" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="pPz-wW-1Ot"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="xRd-wN-BTj" secondAttribute="bottom" id="zcf-c0-Isv"/>
+                            <constraint firstItem="eHk-tB-uL1" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="zff-1x-uZW"/>
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>

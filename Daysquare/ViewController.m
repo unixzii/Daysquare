@@ -46,4 +46,8 @@
     [self.calendarView reloadViewAnimated:YES];
 }
 
+- (IBAction)showUserEventsSwitchDidChange:(id)sender {
+    self.calendarView.showUserEvents = ((UISwitch *) sender).on;
+}
+
 @end

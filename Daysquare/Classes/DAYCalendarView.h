@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <EventKit/EventKit.h>
 
 @interface DAYCalendarView : UIControl
 
@@ -23,6 +24,9 @@
 @property (copy, nonatomic) UIColor *todayIndicatorColor;
 @property (assign, nonatomic) CGFloat indicatorRadius;
 @property (assign, nonatomic) BOOL boldPrimaryComponentText;
+
+// Additional features:
+@property (assign, nonatomic) BOOL showUserEvents;
 
 - (void)reloadViewAnimated:(BOOL)animated;   // Invalidate the original view, use it after changing the appearance settings.
 
