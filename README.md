@@ -7,8 +7,13 @@ An elegant calendar control for iOS.
 Get bored with native silly **UIDatePicker**? You may have a try on this control. Instead of showing you an awkward wheel, it just presents as a intuitive full-size calendar with a lot of preference properties that you can change.
 
 ## Screencast
+### Overview
 ![](https://github.com/unixzii/Daysquare/raw/master/Images/overview.gif)
+
+### Set the date
 ![](https://github.com/unixzii/Daysquare/raw/master/Images/setting.gif)
+
+### Bold current month
 ![](https://github.com/unixzii/Daysquare/raw/master/Images/bold.gif)
 
 ## Features
@@ -18,10 +23,12 @@ Get bored with native silly **UIDatePicker**? You may have a try on this control
 
 **[Changelog - 6.14]**
 * Add: user's calendar events displaying supports.
+
 ![](https://github.com/unixzii/Daysquare/raw/master/Images/event.gif)
 
 **[Changelog - 6.15]**
 * Add: single row mode supports, see `singleRowMode` property.
+
 ![](https://github.com/unixzii/Daysquare/raw/master/Images/singlerow.gif)
 
 ## Guide
