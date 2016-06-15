@@ -15,6 +15,7 @@
 @interface DAYCalendarView () {
     NSUInteger _visibleYear;
     NSUInteger _visibleMonth;
+    NSUInteger _currentVisibleRow;
     NSArray *_eventsInVisibleMonth;
 }
 
@@ -33,6 +34,13 @@
 @end
 
 @implementation DAYCalendarView
+
+- (void)setSingleRowMode:(BOOL)singleRowMode {
+    if (self->_singleRowMode != singleRowMode) {
+        self->_singleRowMode = singleRowMode;
+        [self updateCurrentVisibleRow];
+    }
+}
 
 - (void)setShowUserEvents:(BOOL)showUserEvents {
     if (showUserEvents && self.eventStore == nil && !self.showUserEvents) {
@@ -531,6 +539,22 @@
     [self sendActionsForControlEvents:UIControlEventValueChanged];
 }
 
+- (void)updateCurrentVisibleRow {
+    [self.contentView.arrangedSubviews enumerateObjectsUsingBlock:^(__kindof UIView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        if (self.singleRowMode) {
+            obj.hidden = self->_currentVisibleRow != idx;
+            obj.alpha = obj.hidden ? 0 : 1;
+        }
+        else {
+            obj.hidden = NO;
+            obj.alpha = 1;
+        }
+    }];
+    
+    self.todayIndicatorView.alpha = self.todayIndicatorView.attachingView.superview.hidden ? 0 : 1;
+    self.selectedIndicatorView.alpha = self.selectedIndicatorView.attachingView.superview.hidden ? 0 : 1;
+}
+
 - (void)reloadViewAnimated:(BOOL)animated {
     [self configureIndicatorViews];
     [self configureWeekdayHeaderView];
@@ -544,6 +568,19 @@
 #pragma mark - Actions
 
 - (void)jumpToNextMonth {
+    if (self.singleRowMode) {
+        if (self->_currentVisibleRow < 5) {
+            ++self->_currentVisibleRow;
+            [UIView transitionWithView:self.contentWrapperView duration:0.4 options:UIViewAnimationOptionTransitionFlipFromTop animations:nil completion:nil];
+            [self updateCurrentVisibleRow];
+            
+            return;
+        }
+        else {
+            self->_currentVisibleRow = 0;
+        }
+    }
+    
     NSUInteger nextMonth;
     NSUInteger nextYear;
     
@@ -557,9 +594,26 @@
     }
     
     [self jumpToMonth:nextMonth year:nextYear];
+    
+    if (self.singleRowMode) {
+        [self updateCurrentVisibleRow];
+    }
 }
 
 - (void)jumpToPreviousMonth {
+    if (self.singleRowMode) {
+        if (self->_currentVisibleRow > 0) {
+            --self->_currentVisibleRow;
+            [UIView transitionWithView:self.contentWrapperView duration:0.4 options:UIViewAnimationOptionTransitionFlipFromBottom animations:nil completion:nil];
+            [self updateCurrentVisibleRow];
+            
+            return;
+        }
+        else {
+            self->_currentVisibleRow = 5;
+        }
+    }
+    
     NSUInteger prevMonth;
     NSUInteger prevYear;
     
@@ -573,6 +627,10 @@
     }
     
     [self jumpToMonth:prevMonth year:prevYear];
+    
+    if (self.singleRowMode) {
+        [self updateCurrentVisibleRow];
+    }
 }
 
 - (void)jumpToMonth:(NSUInteger)month year:(NSUInteger)year {

@@ -24,6 +24,7 @@
 @property (copy, nonatomic) UIColor *todayIndicatorColor;
 @property (assign, nonatomic) CGFloat indicatorRadius;
 @property (assign, nonatomic) BOOL boldPrimaryComponentText;
+@property (assign, nonatomic) BOOL singleRowMode;
 
 // Additional features:
 @property (assign, nonatomic) BOOL showUserEvents;

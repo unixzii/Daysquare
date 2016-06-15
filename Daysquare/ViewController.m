@@ -14,6 +14,8 @@
 @property (weak, nonatomic) IBOutlet UIDatePicker *datePicker;
 @property (weak, nonatomic) IBOutlet DAYCalendarView *calendarView;
 
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *calendarHeightConstraint;
+
 @end
 
 @implementation ViewController
@@ -44,6 +46,16 @@
 - (IBAction)switchDidChange:(id)sender {
     self.calendarView.boldPrimaryComponentText = ((UISwitch *) sender).on;
     [self.calendarView reloadViewAnimated:YES];
+}
+
+- (IBAction)singleRowModeSwitchDidChange:(id)sender {
+    BOOL flag = ((UISwitch *) sender).on;
+    
+    self.calendarHeightConstraint.constant = flag ? 100 : 260;
+    [UIView animateWithDuration:0.5 delay:0 usingSpringWithDamping:0.72 initialSpringVelocity:0 options:kNilOptions animations:^{
+        [self.view layoutIfNeeded];
+        self.calendarView.singleRowMode = flag;
+    } completion:nil];
 }
 
 - (IBAction)showUserEventsSwitchDidChange:(id)sender {

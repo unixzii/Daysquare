@@ -17,9 +17,12 @@ Get bored with native silly **UIDatePicker**? You may have a try on this control
 * Automatically adjust view to fit variety sizes.
 
 **[Changelog - 6.14]**
-* **Add: **user's calendar events displaying supports.
-
+* Add: user's calendar events displaying supports.
 ![](https://github.com/unixzii/Daysquare/raw/master/Images/event.gif)
+
+**[Changelog - 6.15]**
+* Add: single row mode supports, see `singleRowMode` property.
+![](https://github.com/unixzii/Daysquare/raw/master/Images/singlerow.gif)
 
 ## Guide
 Try the demo project, it's very easy to use. Daysquare follows the **target-action** pattern, just like the native `UIDatePicker` class.
