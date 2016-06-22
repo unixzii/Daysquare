@@ -41,6 +41,10 @@
 
 - (void)calendarViewDidChange:(id)sender {
     self.datePicker.date = self.calendarView.selectedDate;
+    
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    formatter.dateFormat = @"YYYY-MM-dd";
+    NSLog(@"%@", [formatter stringFromDate:self.calendarView.selectedDate]);
 }
 
 - (IBAction)switchDidChange:(id)sender {

@@ -254,6 +254,7 @@
     }
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayTime * NSEC_PER_MSEC)), dispatch_get_main_queue(), ^{
         [self componentDidTap:[self componentViewForDateComponents:comps]];
+        [self updateCurrentVisibleRow];
     });
 }
 
