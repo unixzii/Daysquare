@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'Daysquare_Example' do
+  pod 'Daysquare', :path => '../'
+
+  target 'Daysquare_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end

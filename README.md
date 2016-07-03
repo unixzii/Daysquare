@@ -2,6 +2,11 @@
 
 An elegant calendar control for iOS.
 
+[![Version](https://img.shields.io/cocoapods/v/Daysquare.svg?style=flat)](http://cocoapods.org/pods/Daysquare)
+[![License](https://img.shields.io/cocoapods/l/Daysquare.svg?style=flat)](http://cocoapods.org/pods/Daysquare)
+[![Platform](https://img.shields.io/cocoapods/p/Daysquare.svg?style=flat)](http://cocoapods.org/pods/Daysquare)
+
+
 ## Introduction
 
 Get bored with native silly **UIDatePicker**? You may have a try on this control. Instead of showing you an awkward wheel, it just presents as a intuitive full-size calendar with a lot of preference properties that you can change.
@@ -30,6 +35,17 @@ Get bored with native silly **UIDatePicker**? You may have a try on this control
 * Add: single row mode supports, see `singleRowMode` property.
 
 ![](https://github.com/unixzii/Daysquare/raw/master/Images/singlerow.gif)
+
+## Example
+To run the example project, clone the repo, and run `pod install` from the Example directory first.
+
+## Installation
+Daysquare is available through [CocoaPods](http://cocoapods.org). To install
+it, simply add the following line to your Podfile:
+
+```ruby
+pod "Daysquare"
+```
 
 ## Guide
 Try the demo project, it's very easy to use. Daysquare follows the **target-action** pattern, just like the native `UIDatePicker` class.
