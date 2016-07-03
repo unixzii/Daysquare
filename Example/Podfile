@@ -1,11 +1,11 @@
 use_frameworks!
 
 target 'Daysquare_Example' do
-  pod 'Daysquare', :path => '../'
+  pod 'Daysquare', :git => 'https://github.com/unixzii/Daysquare.git'
 
   target 'Daysquare_Tests' do
     inherit! :search_paths
 
-    
+
   end
 end
