@@ -7,6 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9D96134D1D2A69DC00967A79 /* Lib.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D96134C1D2A69DC00967A79 /* Lib.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9D9613511D2A69DC00967A79 /* Lib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D96134A1D2A69DC00967A79 /* Lib.framework */; };
+		9D9613521D2A69DC00967A79 /* Lib.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9D96134A1D2A69DC00967A79 /* Lib.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		9D96135B1D2A6A0600967A79 /* DAYCalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D9613571D2A6A0600967A79 /* DAYCalendarView.m */; };
+		9D96135C1D2A6A0600967A79 /* DAYCalendarView.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D9613581D2A6A0600967A79 /* DAYCalendarView.h */; };
+		9D96135E1D2A6A0600967A79 /* Daysquare.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D96135A1D2A6A0600967A79 /* Daysquare.h */; };
+		9D9613641D2A6A9600967A79 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D9613631D2A6A9600967A79 /* UIKit.framework */; };
+		9D96136E1D2A6AE200967A79 /* DAYComponentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D9613661D2A6AE200967A79 /* DAYComponentView.m */; };
+		9D96136F1D2A6AE200967A79 /* DAYComponentView.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D9613671D2A6AE200967A79 /* DAYComponentView.h */; };
+		9D9613701D2A6AE200967A79 /* DAYUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D9613681D2A6AE200967A79 /* DAYUtils.m */; };
+		9D9613711D2A6AE200967A79 /* DAYUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D9613691D2A6AE200967A79 /* DAYUtils.h */; };
+		9D9613721D2A6AE200967A79 /* DAYIndicatorView.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D96136A1D2A6AE200967A79 /* DAYIndicatorView.h */; };
+		9D9613731D2A6AE200967A79 /* DAYIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D96136B1D2A6AE200967A79 /* DAYIndicatorView.m */; };
+		9D9613741D2A6AE200967A79 /* DAYNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 9D96136C1D2A6AE200967A79 /* DAYNavigationBar.m */; };
+		9D9613751D2A6AE200967A79 /* DAYNavigationBar.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D96136D1D2A6AE200967A79 /* DAYNavigationBar.h */; };
 		9DAB57351D06E73400D65493 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DAB57341D06E73400D65493 /* main.m */; };
 		9DAB57381D06E73400D65493 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DAB57371D06E73400D65493 /* AppDelegate.m */; };
 		9DAB573B1D06E73400D65493 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9DAB573A1D06E73400D65493 /* ViewController.m */; };
@@ -22,6 +37,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		9D96134F1D2A69DC00967A79 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9DAB57281D06E73400D65493 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9D9613491D2A69DC00967A79;
+			remoteInfo = Lib;
+		};
 		9DAB57581D06E92500D65493 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 9DAB57281D06E73400D65493 /* Project object */;
@@ -31,7 +53,36 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		9D9613561D2A69DC00967A79 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				9D9613521D2A69DC00967A79 /* Lib.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		9D96134A1D2A69DC00967A79 /* Lib.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Lib.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9D96134C1D2A69DC00967A79 /* Lib.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Lib.h; sourceTree = "<group>"; };
+		9D96134E1D2A69DC00967A79 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9D9613571D2A6A0600967A79 /* DAYCalendarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DAYCalendarView.m; sourceTree = "<group>"; };
+		9D9613581D2A6A0600967A79 /* DAYCalendarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DAYCalendarView.h; sourceTree = "<group>"; };
+		9D96135A1D2A6A0600967A79 /* Daysquare.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Daysquare.h; sourceTree = "<group>"; };
+		9D9613631D2A6A9600967A79 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		9D9613661D2A6AE200967A79 /* DAYComponentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DAYComponentView.m; sourceTree = "<group>"; };
+		9D9613671D2A6AE200967A79 /* DAYComponentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DAYComponentView.h; sourceTree = "<group>"; };
+		9D9613681D2A6AE200967A79 /* DAYUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DAYUtils.m; sourceTree = "<group>"; };
+		9D9613691D2A6AE200967A79 /* DAYUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DAYUtils.h; sourceTree = "<group>"; };
+		9D96136A1D2A6AE200967A79 /* DAYIndicatorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DAYIndicatorView.h; sourceTree = "<group>"; };
+		9D96136B1D2A6AE200967A79 /* DAYIndicatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DAYIndicatorView.m; sourceTree = "<group>"; };
+		9D96136C1D2A6AE200967A79 /* DAYNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DAYNavigationBar.m; sourceTree = "<group>"; };
+		9D96136D1D2A6AE200967A79 /* DAYNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DAYNavigationBar.h; sourceTree = "<group>"; };
 		9DAB57301D06E73400D65493 /* Daysquare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Daysquare.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DAB57341D06E73400D65493 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		9DAB57361D06E73400D65493 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -59,10 +110,19 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		9D9613461D2A69DC00967A79 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9D9613641D2A6A9600967A79 /* UIKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		9DAB572D1D06E73400D65493 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9D9613511D2A69DC00967A79 /* Lib.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,11 +136,41 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9D96134B1D2A69DC00967A79 /* Lib */ = {
+			isa = PBXGroup;
+			children = (
+				9D9613651D2A6AD100967A79 /* Internal */,
+				9D9613571D2A6A0600967A79 /* DAYCalendarView.m */,
+				9D9613581D2A6A0600967A79 /* DAYCalendarView.h */,
+				9D96135A1D2A6A0600967A79 /* Daysquare.h */,
+				9D96134C1D2A69DC00967A79 /* Lib.h */,
+				9D96134E1D2A69DC00967A79 /* Info.plist */,
+			);
+			path = Lib;
+			sourceTree = "<group>";
+		};
+		9D9613651D2A6AD100967A79 /* Internal */ = {
+			isa = PBXGroup;
+			children = (
+				9D9613661D2A6AE200967A79 /* DAYComponentView.m */,
+				9D9613671D2A6AE200967A79 /* DAYComponentView.h */,
+				9D9613681D2A6AE200967A79 /* DAYUtils.m */,
+				9D9613691D2A6AE200967A79 /* DAYUtils.h */,
+				9D96136A1D2A6AE200967A79 /* DAYIndicatorView.h */,
+				9D96136B1D2A6AE200967A79 /* DAYIndicatorView.m */,
+				9D96136C1D2A6AE200967A79 /* DAYNavigationBar.m */,
+				9D96136D1D2A6AE200967A79 /* DAYNavigationBar.h */,
+			);
+			path = Internal;
+			sourceTree = "<group>";
+		};
 		9DAB57271D06E73400D65493 = {
 			isa = PBXGroup;
 			children = (
+				9D9613631D2A6A9600967A79 /* UIKit.framework */,
 				9DAB57321D06E73400D65493 /* Daysquare */,
 				9DAB57541D06E92500D65493 /* DaysquareTests */,
+				9D96134B1D2A69DC00967A79 /* Lib */,
 				9DAB57311D06E73400D65493 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -90,6 +180,7 @@
 			children = (
 				9DAB57301D06E73400D65493 /* Daysquare.app */,
 				9DAB57531D06E92500D65493 /* DaysquareTests.xctest */,
+				9D96134A1D2A69DC00967A79 /* Lib.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -156,7 +247,42 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		9D9613471D2A69DC00967A79 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9D9613721D2A6AE200967A79 /* DAYIndicatorView.h in Headers */,
+				9D96136F1D2A6AE200967A79 /* DAYComponentView.h in Headers */,
+				9D96135E1D2A6A0600967A79 /* Daysquare.h in Headers */,
+				9D9613711D2A6AE200967A79 /* DAYUtils.h in Headers */,
+				9D96135C1D2A6A0600967A79 /* DAYCalendarView.h in Headers */,
+				9D96134D1D2A69DC00967A79 /* Lib.h in Headers */,
+				9D9613751D2A6AE200967A79 /* DAYNavigationBar.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
+		9D9613491D2A69DC00967A79 /* Lib */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9D9613551D2A69DC00967A79 /* Build configuration list for PBXNativeTarget "Lib" */;
+			buildPhases = (
+				9D9613451D2A69DC00967A79 /* Sources */,
+				9D9613461D2A69DC00967A79 /* Frameworks */,
+				9D9613471D2A69DC00967A79 /* Headers */,
+				9D9613481D2A69DC00967A79 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Lib;
+			productName = Lib;
+			productReference = 9D96134A1D2A69DC00967A79 /* Lib.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 		9DAB572F1D06E73400D65493 /* Daysquare */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9DAB57471D06E73400D65493 /* Build configuration list for PBXNativeTarget "Daysquare" */;
@@ -164,10 +290,12 @@
 				9DAB572C1D06E73400D65493 /* Sources */,
 				9DAB572D1D06E73400D65493 /* Frameworks */,
 				9DAB572E1D06E73400D65493 /* Resources */,
+				9D9613561D2A69DC00967A79 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				9D9613501D2A69DC00967A79 /* PBXTargetDependency */,
 			);
 			name = Daysquare;
 			productName = Daysquare;
@@ -201,6 +329,10 @@
 				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = Cyandev;
 				TargetAttributes = {
+					9D9613491D2A69DC00967A79 = {
+						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = S8ZP685HLU;
+					};
 					9DAB572F1D06E73400D65493 = {
 						CreatedOnToolsVersion = 7.3;
 						DevelopmentTeam = S8ZP685HLU;
@@ -227,11 +359,19 @@
 			targets = (
 				9DAB572F1D06E73400D65493 /* Daysquare */,
 				9DAB57521D06E92500D65493 /* DaysquareTests */,
+				9D9613491D2A69DC00967A79 /* Lib */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		9D9613481D2A69DC00967A79 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		9DAB572E1D06E73400D65493 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -252,6 +392,18 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		9D9613451D2A69DC00967A79 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9D9613731D2A6AE200967A79 /* DAYIndicatorView.m in Sources */,
+				9D9613701D2A6AE200967A79 /* DAYUtils.m in Sources */,
+				9D9613741D2A6AE200967A79 /* DAYNavigationBar.m in Sources */,
+				9D96135B1D2A6A0600967A79 /* DAYCalendarView.m in Sources */,
+				9D96136E1D2A6AE200967A79 /* DAYComponentView.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		9DAB572C1D06E73400D65493 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -278,6 +430,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		9D9613501D2A69DC00967A79 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9D9613491D2A69DC00967A79 /* Lib */;
+			targetProxy = 9D96134F1D2A69DC00967A79 /* PBXContainerItemProxy */;
+		};
 		9DAB57591D06E92500D65493 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 9DAB572F1D06E73400D65493 /* Daysquare */;
@@ -305,6 +462,46 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		9D9613531D2A69DC00967A79 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = Lib/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.cyandev.Lib;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		9D9613541D2A69DC00967A79 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = Lib/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.cyandev.Lib;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 		9DAB57451D06E73400D65493 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -436,6 +633,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		9D9613551D2A69DC00967A79 /* Build configuration list for PBXNativeTarget "Lib" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9D9613531D2A69DC00967A79 /* Debug */,
+				9D9613541D2A69DC00967A79 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		9DAB572B1D06E73400D65493 /* Build configuration list for PBXProject "Daysquare" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -452,6 +657,7 @@
 				9DAB57491D06E73400D65493 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9DAB575A1D06E92500D65493 /* Build configuration list for PBXNativeTarget "DaysquareTests" */ = {
 			isa = XCConfigurationList;
@@ -460,6 +666,7 @@
 				9DAB575C1D06E92500D65493 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
