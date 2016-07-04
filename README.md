@@ -5,7 +5,7 @@ An elegant calendar control for iOS.
 [![Version](https://img.shields.io/cocoapods/v/Daysquare.svg?style=flat)](http://cocoapods.org/pods/Daysquare)
 [![License](https://img.shields.io/cocoapods/l/Daysquare.svg?style=flat)](http://cocoapods.org/pods/Daysquare)
 [![Platform](https://img.shields.io/cocoapods/p/Daysquare.svg?style=flat)](http://cocoapods.org/pods/Daysquare)
-
+[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 
 ## Introduction
 
@@ -45,6 +45,12 @@ it, simply add the following line to your Podfile:
 
 ```ruby
 pod 'Daysquare', :git => 'https://github.com/unixzii/Daysquare.git'
+```
+
+Also, if you prefer to use Carthage, you can add the following line to your Cartfile:
+
+```bash
+github "unixzii/Daysquare"
 ```
 
 ## Guide
