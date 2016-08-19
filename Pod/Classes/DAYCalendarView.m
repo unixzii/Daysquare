@@ -416,7 +416,7 @@
     NSUInteger paddingMonth = self->_visibleMonth == 1 ? 12 : self->_visibleMonth - 1;
     NSUInteger totalDaysInLastMonth = [DAYUtils daysInMonth:paddingMonth ofYear:paddingYear];
     
-    for (int j = 0; j < paddingDays; j++) {
+    for (int j = (int) paddingDays - 1; j >= 0; j--) {
         [self configureComponentView:self.componentViews[pointer++] withDay:totalDaysInLastMonth - j month:paddingMonth year:paddingYear];
     }
     
