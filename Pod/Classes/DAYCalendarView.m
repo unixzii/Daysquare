@@ -350,6 +350,14 @@
         }
         self.todayIndicatorView.attachingView = view;
         [self addConstraintToCenterIndicatorView:self.todayIndicatorView toView:view];
+        
+        // by Rakuyo. Solves the problem that default row is not the current date's row in single line mode
+        if (self->_currentVisibleRow == 0) {
+            NSUInteger paddingDays = [DAYUtils firstWeekdayInMonth:self->_visibleMonth ofYear:self->_visibleYear] - 1;
+            
+            float result = (day - paddingDays) / 7;
+            self->_currentVisibleRow = floor(result) == result?(result - 1):floor(result);
+        }
     }
     
     view.containingEvent = nil;
@@ -442,19 +450,19 @@
     }];
     
     [self.contentWrapperView addConstraint:[NSLayoutConstraint constraintWithItem:view
-                                                          attribute:NSLayoutAttributeCenterX
-                                                          relatedBy:NSLayoutRelationEqual
-                                                             toItem:toView
-                                                          attribute:NSLayoutAttributeCenterX
-                                                         multiplier:1.0
-                                                           constant:0]];
+                                                                        attribute:NSLayoutAttributeCenterX
+                                                                        relatedBy:NSLayoutRelationEqual
+                                                                           toItem:toView
+                                                                        attribute:NSLayoutAttributeCenterX
+                                                                       multiplier:1.0
+                                                                         constant:0]];
     [self.contentWrapperView addConstraint:[NSLayoutConstraint constraintWithItem:view
-                                                          attribute:NSLayoutAttributeCenterY
-                                                          relatedBy:NSLayoutRelationEqual
-                                                             toItem:toView
-                                                          attribute:NSLayoutAttributeCenterY
-                                                         multiplier:1.0
-                                                           constant:0]];
+                                                                        attribute:NSLayoutAttributeCenterY
+                                                                        relatedBy:NSLayoutRelationEqual
+                                                                           toItem:toView
+                                                                        attribute:NSLayoutAttributeCenterY
+                                                                       multiplier:1.0
+                                                                         constant:0]];
     [view addConstraint:[NSLayoutConstraint constraintWithItem:view
                                                      attribute:NSLayoutAttributeWidth
                                                      relatedBy:NSLayoutRelationEqual
@@ -512,8 +520,16 @@
         return;
     }
     
-    if (self.selectedIndicatorView.hidden) {
-        self.selectedIndicatorView.hidden = NO;
+    // by Rakuyo. Solves the problem that switch error in single line mode
+    if (self.selectedIndicatorView.hidden || self.selectedIndicatorView.alpha == 0) {
+        
+        if (self.selectedIndicatorView.hidden) {
+            self.selectedIndicatorView.hidden = NO;
+        }
+        if (self.selectedIndicatorView.alpha == 0) {
+            self.selectedIndicatorView.alpha = 1;
+        }
+        
         self.selectedIndicatorView.transform = CGAffineTransformMakeScale(0, 0);
         self.selectedIndicatorView.attachingView = sender;
         [self addConstraintToCenterIndicatorView:self.selectedIndicatorView toView:sender];
@@ -572,6 +588,19 @@
     if (self.singleRowMode) {
         if (self->_currentVisibleRow < 5) {
             ++self->_currentVisibleRow;
+            
+            // by Rakuyo. Optimize jump logic
+            NSUInteger totalDays = [DAYUtils daysInMonth:self->_visibleMonth ofYear:self->_visibleYear];
+            NSUInteger paddingDays = [DAYUtils firstWeekdayInMonth:self->_visibleMonth  ofYear:self->_visibleYear] - 1;
+            BOOL flag = (self.componentViews.count - totalDays - paddingDays) >= 7;
+            
+            if (self->_currentVisibleRow == 5 && flag) {
+                ++self->_currentVisibleRow;
+                [self jumpToNextMonth];
+                
+                return;
+            }
+            
             [UIView transitionWithView:self.contentWrapperView duration:0.4 options:UIViewAnimationOptionTransitionFlipFromTop animations:nil completion:nil];
             [self updateCurrentVisibleRow];
             
@@ -609,9 +638,13 @@
             [self updateCurrentVisibleRow];
             
             return;
-        }
-        else {
-            self->_currentVisibleRow = 5;
+        } else {
+            
+            // by Rakuyo. Optimize jump logic
+            NSUInteger totalDays = [DAYUtils daysInMonth:self->_visibleMonth - 1 ofYear:self->_visibleYear];
+            NSUInteger paddingDays = [DAYUtils firstWeekdayInMonth:self->_visibleMonth - 1  ofYear:self->_visibleYear] - 1;
+            
+            self->_currentVisibleRow = ((self.componentViews.count - totalDays - paddingDays) >= 7)?4:5;
         }
     }
     
@@ -691,3 +724,4 @@
 }
 
 @end
+
