@@ -1,3 +1,5 @@
+**NO LONGER MAINTAINED**
+
 # Daysquare
 
 An elegant calendar control for iOS.
